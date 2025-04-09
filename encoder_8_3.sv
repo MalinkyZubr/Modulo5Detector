@@ -18,10 +18,11 @@ always_comb begin
             4: out = 3'b010;
             2: out = 3'b001;
             1: out = 3'b000;
+            default: out = 3'b00;
         endcase
     end
     else begin
-        out = 3'bz;
+        out = 3'b000;
     end
 end
 

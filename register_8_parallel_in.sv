@@ -14,12 +14,14 @@ logic[7:0] current_value;
 
 always_ff @( posedge clock ) begin
     if(en) begin
+        output_bit <= current_value[7];
         if(catch_in) begin
             current_value <= parallel_in;
+            //output_bit <= current_value[7];
         end
         else begin
-            output_bit <= current_value[7];
             current_value <= current_value << 1;
+            //output_bit <= current_value[7];
         end
     end
 end

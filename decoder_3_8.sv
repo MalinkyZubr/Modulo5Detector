@@ -13,7 +13,7 @@ always_comb begin
         out[in] = 1'b1;
     end
     else begin
-        out = 8'bz
+        out = 8'b000;
     end
 end
 
