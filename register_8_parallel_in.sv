@@ -11,18 +11,21 @@ module Register_8_Parallel_In(
 );
 
 logic[7:0] current_value;
+logic[7:0] next_value;
+
+always_comb begin
+    next_value = current_value << 1;
+end
 
 always_ff @( posedge clock ) begin
     if(en) begin
-        output_bit <= current_value[7];
         if(catch_in) begin
             current_value <= parallel_in;
-            //output_bit <= current_value[7];
         end
         else begin
-            current_value <= current_value << 1;
-            //output_bit <= current_value[7];
+            current_value <= next_value;
         end
+        output_bit <= current_value[7];
     end
 end
 
